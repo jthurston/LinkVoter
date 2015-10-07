@@ -39,15 +39,16 @@ if (Meteor.isClient) {
                         thumbs_up: 0,
                         thumbs_down: 0 });
       }
-
       Meteor.call('vote', url, 'thumbs_up');
-
     }
   };
 
+  Template.change_settings.events = {
+    'click input#clear_urls' : function () {
+      Meteor.call('removeAllPosts')
+    }
+  };
 }
-
-
 
 if (Meteor.isServer) {
     Meteor.startup(function () {
@@ -66,7 +67,11 @@ if (Meteor.isServer) {
 
                 Links.update( { url : url }, new_obj );
 
-              }
+              },
+
+        removeAllPosts: function() {
+          Links.remove({});
+        }
       });
     });
 }
