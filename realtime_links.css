@@ -1,0 +1,23 @@
+/* CSS declarations go here */
+body {
+  background: black;
+  color: white;
+  font-family: arial;
+}
+
+ul {
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+.thumbs_up {
+  background-color: red;
+}
+
+.thumbs_down {
+  background-color: green;
+}

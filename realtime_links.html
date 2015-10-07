@@ -1,0 +1,61 @@
+<head>
+  <title>Realtime Links Demo</title>
+</head>
+
+<body>
+  {{> header }}
+  {{> link_list }}
+  {{> add_new_link }}
+</body>
+
+<template name="header">
+
+  <h1>The Link Collection ({{collection_size}})</h1>
+
+</template>
+
+<template name="link_list">
+
+  <ul>
+
+    {{#each links }}
+
+      <li> {{> link_detail }} </li>
+
+    {{/each }}
+
+  </ul>
+
+</template>
+
+<template name="link_detail">
+
+  <div id="link-{{id}}">
+
+    <h1><a href="{{url}}" target="_blank">{{url}}</a></h1>
+
+    <p><strong>Stats:</strong>
+        up: {{thumbs_up}} down: {{thumbs_down}}
+        net score: {{score}}</p>
+
+    <input type="button" value="Thumbs Up"
+          class="thumbs_up" />
+    <input type="button" value="Thumbs Down"
+          class="thumbs_down"
+          />
+
+  </div>
+
+</template>
+
+<template name="add_new_link">
+  <h2>Add a URL</h2>
+
+  <div id="new_link_form">
+
+    URL: <input id="url">
+    <input type="button" value="Add" id="add_url" />
+
+  </div>
+
+</template>
