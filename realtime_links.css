@@ -1,8 +1,8 @@
 /* CSS declarations go here */
 body {
-  background: black;
-  color: white;
-  font-family: arial;
+  background: cornflowerblue;
+  color: grey;
+  font-family: helvetica;
 }
 
 ul {
@@ -15,9 +15,15 @@ a {
 }
 
 .thumbs_up {
-  background-color: red;
+  cursor:pointer;
+  border: none;
 }
 
 .thumbs_down {
-  background-color: green;
+  cursor:pointer;
+  border: none;
+}
+
+h1 {
+  margin: -5px;
 }

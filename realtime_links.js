@@ -26,7 +26,7 @@ if (Meteor.isClient) {
 
   Template.add_new_link.events = {
 
-    'click input#add_url' : function () {      
+    'click input#add_url' : function () {
 
       var new_url = $('#url').val();
 
