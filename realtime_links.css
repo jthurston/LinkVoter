@@ -1,8 +1,9 @@
 /* CSS declarations go here */
 body {
-  background: cornflowerblue;
+  background: #3f2860;
   color: grey;
   font-family: helvetica;
+  text-align: center;
 }
 
 ul {
@@ -24,6 +25,18 @@ a {
   border: none;
 }
 
+.delete_me {
+  cursor: pointer;
+  border: none;
+  visibility: hidden;
+}
+
 h1 {
   margin: -5px;
+  color: #90c5a9;
+  padding-top: 10px;
+}
+
+h2 {
+  color: #FA8B60
 }

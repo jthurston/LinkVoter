@@ -7,6 +7,8 @@
   {{> link_list }}
   {{> add_new_link }}
   {{> change_settings }}
+  {{> sAlert}}
+
 </body>
 
 <template name="header">
@@ -34,9 +36,10 @@
   <div id="link-{{id}}">
 
         <h1>
+          <a href="{{url}}" target="_blank">{{url}}</a>
           <input type="image" value="Thumbs Up" src="/images/thumbs_up.png" width="25px" class="thumbs_up"/>
           <input type="image" value="Thumbs Down" src="/images/thumbs_down.png" width="25px" class="thumbs_down"/>
-          <a href="{{url}}" target="_blank">{{url}}</a>
+          <input type="image" value="Delete" src="/images/trash.png" width="25px" class="delete_me"/>
         </h1>
 
     <p><strong>Stats:</strong>
@@ -60,5 +63,6 @@
   <template name="change_settings">
     <h2>Settings</h2>
     <input type="button" value="Clear" id="clear_urls" />
+    <input type="button" value="Edit" id="edit_mode" />
 
   </template>

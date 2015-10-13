@@ -11,7 +11,6 @@ if (Meteor.isClient) {
     return Links.find({}, {sort : {score: -1} });
   };
 
-
   Template.link_detail.events = {
 
     'click input.thumbs_up' : function () {
@@ -20,6 +19,11 @@ if (Meteor.isClient) {
 
     'click input.thumbs_down' : function () {
       Meteor.call('vote', this.url, 'thumbs_down');
+    },
+
+    'click input.delete_me' : function () {
+      console.log(this._id);
+      Meteor.call('deleteId', this._id, 'delete_me');
     }
 
   };
@@ -38,16 +42,30 @@ if (Meteor.isClient) {
                         score: 0,
                         thumbs_up: 0,
                         thumbs_down: 0 });
-      }
+      } else {
+        console.log("Shit");
+        var warningThatWeWantToCloseLater = sAlert.warning('Already have that one in the list!', {timeout: 2000});
+        }
+
       Meteor.call('vote', url, 'thumbs_up');
     }
   };
 
-  Template.change_settings.events = {
+  Template.change_settings.events({
     'click input#clear_urls' : function () {
       Meteor.call('removeAllPosts')
+    },
+    'click input#edit_mode' : function () {
+      $(".delete_me").css('visibility', 'visible');
+      $("#edit_mode").attr('Value','Read');
+      $("#edit_mode").attr('id','read_mode');
+    },
+    'click input#read_mode' : function () {
+      $(".delete_me").css('visibility', 'hidden');
+      $("#read_mode").attr("Value","Edit");
+      $("#read_mode").attr("id","edit_mode");
     }
-  };
+  });
 }
 
 if (Meteor.isServer) {
@@ -71,6 +89,10 @@ if (Meteor.isServer) {
 
         removeAllPosts: function() {
           Links.remove({});
+        },
+
+        deleteId: function(theId) {
+          Links.remove({_id: theId});
         }
       });
     });
